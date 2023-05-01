@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: SpringBootApplication
+server:
+  port: 9080
+
+  
