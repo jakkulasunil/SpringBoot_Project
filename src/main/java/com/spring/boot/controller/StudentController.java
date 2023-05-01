@@ -17,5 +17,6 @@ public class StudentController {
 	public String getMessage() {
 		logger.info("message printed successfully.");
 		return "Welcome to spring boot project.";
+	}
 
 }
