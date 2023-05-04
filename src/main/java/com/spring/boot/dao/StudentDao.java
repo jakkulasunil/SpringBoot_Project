@@ -1,0 +1,6 @@
+package com.spring.boot.dao;
+
+
+public interface StudentDao {
+
+}
