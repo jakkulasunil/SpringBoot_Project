@@ -1,10 +1,14 @@
 package com.spring.boot.controller;
 
+import java.net.URI;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,20 +28,24 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 
-	@GetMapping("/hello")
-	public String getMessage() {
-		logger.info("message printed successfully.");
-		return "Welcome to spring boot project.";
-	}
-	
-	@GetMapping("/allStudents")
-	public List<Student> getAllStudents(){
-		return new StudentUtil().getLists();
+//	@GetMapping("/studentDetails")
+//	public List<Student> getStudents(){
+//		return new StudentUtil().getLists();
+//	}
+
+	@GetMapping("/studentDetails")
+	public ResponseEntity<List<Student>> getStudents(){
+		return new ResponseEntity<List<Student>>(studentService.getAllStudents(), HttpStatus.OK);
 	}
 	
 	@PostMapping("/saveStudent")
 	public Student createStudent(@RequestBody Student student) {
 		return studentService.createStudent(student);
+	}
+	
+	@GetMapping("/allStudents")
+	public List<Student> getAllStudents(){
+		return studentService.getAllStudents();
 	}
 
 }

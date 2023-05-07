@@ -1,5 +1,7 @@
 package com.spring.boot.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,10 @@ public class StudentService {
 	
 	public Student createStudent(Student student) {
 		return studentDao.save(student);
+	}
+	
+	public List<Student> getAllStudents(){
+		return (List<Student>) studentDao.findAll();
 	}
 	
 }
