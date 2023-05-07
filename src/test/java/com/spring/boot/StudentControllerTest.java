@@ -32,7 +32,7 @@ public class StudentControllerTest {
 
 	@Test
 	public void getAllStudentDetails() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/allStudents").accept(MediaType.APPLICATION_JSON)).andDo(print())
+		mockMvc.perform(MockMvcRequestBuilders.get("/studentDetails").accept(MediaType.APPLICATION_JSON)).andDo(print())
 				.andExpect(status().isOk());
 	}
 }

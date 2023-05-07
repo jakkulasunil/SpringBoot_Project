@@ -1,7 +1,16 @@
 spring:
   application:
-    name: SpringBootApplication
-server:
-  port: 9080
+    name: eurekaclient
+
+eureka:
+   client:
+      serviceUrl:
+         defaultZone: http://localhost:8761/eureka/
+      instance:
+      preferIpAddress: true
+      statusPageUrlPath: ${server.servletPath}/info
+      healthCheckUrlPath: ${server.servletPath}/health
+      healthcheck:
+         enabled: true
 
   
