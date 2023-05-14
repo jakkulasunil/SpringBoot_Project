@@ -2,6 +2,11 @@ package com.spring.boot.entity;
 
 import java.util.List;
 
+import org.springframework.hateoas.RepresentationModel;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +19,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "REG_101")
-public class Registration {
+public class Registration extends RepresentationModel<Registration> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,7 +37,9 @@ public class Registration {
 		super();
 	}
 
-	public Registration(Integer id, String firstName, String lastName, List<Courses> courses) {
+	@JsonCreator
+	public Registration(@JsonProperty Integer id, @JsonProperty String firstName, @JsonProperty String lastName,
+			@JsonProperty List<Courses> courses) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
