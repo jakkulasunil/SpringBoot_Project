@@ -1,37 +1,23 @@
-package com.spring.boot.entity;
+package com.spring.boot.dto;
 
 import org.springframework.hateoas.RepresentationModel;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+public class StudentDto extends RepresentationModel<StudentDto>{
 
-@Entity
-@Table(name = "Student_001")
-public class Student extends RepresentationModel<Student> {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private int id;
-	@Column(name = "St_Name")
 	private String name;
-	@Column(name = "St_Email")
 	private String email;
-	@Column(name = "St_Age")
 	private int age;
 
-	public Student() {
+	public StudentDto() {
 		super();
 	}
-
 	@JsonCreator
-	public Student(@JsonProperty int id, @JsonProperty String name, @JsonProperty String email, @JsonProperty int age) {
+	public StudentDto(@JsonProperty int id, @JsonProperty String name,@JsonProperty String email,@JsonProperty int age) {
 		super();
 		this.id = id;
 		this.name = name;
