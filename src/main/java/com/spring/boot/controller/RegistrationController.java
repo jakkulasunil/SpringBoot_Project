@@ -17,7 +17,6 @@ import com.spring.boot.service.RegistrationService;
 @RequestMapping("/reg")
 public class RegistrationController {
 	
-		
 	@Autowired
 	private RegistrationService registrationService;
 
