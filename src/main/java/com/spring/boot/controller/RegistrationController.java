@@ -24,6 +24,7 @@ public class RegistrationController {
 	public List<Registration> getAllRegistrations() {
 		return registrationService.getAllRegistrations();
 	}
+	
 
 	@PostMapping("/create")
 	public ResponseEntity<Registration> createRegistrations(@RequestBody Registration registration) {
